@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- IMG Tag Pixel Integration -->
     <img src="https://www.facebook.com/tr?id=717716230583709&ev=PageView&noscript=1" />
-    <title>Facebook Pixel Add to Cart with Form</title>
+    <title>Facebook Pixel Test Page</title>
     <!-- Facebook Pixel Code -->
     <script>
         !function(f,b,e,v,n,t,s)
@@ -28,7 +28,7 @@
     </noscript>
 </head>
 <body>
-    <h1>Facebook Pixel Add to Cart Test</h1>
+    <h1>Facebook Pixel Test Page</h1>
 
     <!-- Form to collect Name and Email -->
     <form id="userDetailsForm">
@@ -44,12 +44,25 @@
         <button type="button" id="addToCartButton">Add to Cart</button>
 
         <button type="button" id="addToWishlistButton">Add to Wishlist</button>
+
+        <button type="button" id="completeRegistrationButton">Complete Registration</button>
+
+        <button type="button" id="donateButton">Donate</button>
+
+        <button type="button" id="initiateCheckoutButton">Initiate Checkout</button>
+
+        <button type="button" id="purchaseButton">Purchase</button>
+
+        <button type="button" id="searchButton">Search</button>
+
+        <button type="button" id="startTrialButton">Start Trial</button>
+
+        <button type="button" id="subscribeButton">Subscribe</button>
     </form>
 
-    <!-- JavaScript to trigger the addToCart event -->
+    <!-- JavaScript to trigger events -->
     <script>
         document.getElementById('addToCartButton').addEventListener('click', function() {
-            // Get the values from the form
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
 
@@ -58,13 +71,149 @@
                 return;
             }
 
-            // Trigger Facebook Pixel AddToCart event with user data
             fbq('track', 'AddToCart', {
                 content_name: 'Test Product',
                 content_category: 'Example Category',
                 content_ids: ['1234'],
                 content_type: 'product',
                 value: 50.00,
+                currency: 'USD',
+                user_name: name
+            });
+        });
+
+        document.getElementById('addToWishlistButton').addEventListener('click', function() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            if (!name || !email) {
+                alert('Please enter both your name and email.');
+                return;
+            }
+
+            fbq('track', 'AddToWishlist', {
+                content_name: 'Test Product',
+                content_category: 'Example Category',
+                content_ids: ['1234'],
+                content_type: 'product',
+                value: 50.00,
+                currency: 'USD',
+                user_name: name
+            });
+        });
+
+        document.getElementById('completeRegistrationButton').addEventListener('click', function() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            if (!name || !email) {
+                alert('Please enter both your name and email.');
+                return;
+            }
+
+            fbq('track', 'CompleteRegistration', {
+                user_name: name
+            });
+        });
+
+        document.getElementById('donateButton').addEventListener('click', function() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            if (!name || !email) {
+                alert('Please enter both your name and email.');
+                return;
+            }
+
+            fbq('track', 'Donate', {
+                value: 10.00,
+                currency: 'USD',
+                user_name: name
+            });
+        });
+
+        document.getElementById('initiateCheckoutButton').addEventListener('click', function() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            if (!name || !email) {
+                alert('Please enter both your name and email.');
+                return;
+            }
+
+            fbq('track', 'InitiateCheckout', {
+                content_name: 'Test Product',
+                content_category: 'Example Category',
+                content_ids: ['1234'],
+                content_type: 'product',
+                value: 50.00,
+                currency: 'USD',
+                user_name: name
+            });
+        });
+
+        document.getElementById('purchaseButton').addEventListener('click', function() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            if (!name || !email) {
+                alert('Please enter both your name and email.');
+                return;
+            }
+
+            fbq('track', 'Purchase', {
+                content_name: 'Test Product',
+                content_category: 'Example Category',
+                content_ids: ['1234'],
+                content_type: 'product',
+                value: 50.00,
+                currency: 'USD',
+                user_name: name
+            });
+        });
+
+        document.getElementById('searchButton').addEventListener('click', function() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            if (!name || !email) {
+                alert('Please enter both your name and email.');
+                return;
+            }
+
+            fbq('track', 'Search', {
+                search_string: 'Test Search Query',
+                user_name: name
+            });
+        });
+
+        document.getElementById('startTrialButton').addEventListener('click', function() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            if (!name || !email) {
+                alert('Please enter both your name and email.');
+                return;
+            }
+
+            fbq('track', 'StartTrial', {
+                value: 10.00,
+                currency: 'USD',
+                user_name: name
+            });
+        });
+
+        document.getElementById('subscribeButton').addEventListener('click', function() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            if (!name || !email) {
+                alert('Please enter both your name and email.');
+                return;
+            }
+
+            fbq('track', 'Subscribe', {
+                value: 10.00,
                 currency: 'USD',
                 user_name: name
             });
